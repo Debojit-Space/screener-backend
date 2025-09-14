@@ -28,6 +28,7 @@ type Bindings = {
   LLM_MODEL: string
   EMBEDDING_DIMENSIONS: string
   TOP_K: string
+  CLOUDFLARE_GATEWAY_URL: string
 }
 
 interface PineconeMatch {
@@ -239,7 +240,9 @@ async function generateResponse(query: string, searchResults: PineconeResponse, 
     }
   ]
 
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  const gatewayUrl = env.CLOUDFLARE_GATEWAY_URL || 'https://gateway.ai.cloudflare.com/v1/9e20a2d23e8227768214ace8238988ed/screener-rag/openai'
+  
+  const response = await fetch(`${gatewayUrl}/chat/completions`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${env.OPENAI_API_KEY}`,
