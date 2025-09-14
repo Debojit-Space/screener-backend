@@ -1,0 +1,20 @@
+{
+    "name": "screener-backend",
+    "version": "1.0.0",
+    "description": "RAG chat service using Pinecone and OpenAI on Cloudflare Workers",
+    "main": "src/index.ts",
+    "scripts": {
+      "dev": "wrangler dev",
+      "deploy": "wrangler deploy",
+      "build": "wrangler build",
+      "test": "wrangler dev --local"
+    },
+    "dependencies": {
+      "hono": "^3.12.8"
+    },
+    "devDependencies": {
+      "@cloudflare/workers-types": "^4.20240725.0",
+      "typescript": "^5.2.2",
+      "wrangler": "^4.31.0"
+    }
+  }

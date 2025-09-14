@@ -1,0 +1,17 @@
+name = "screener-backend"
+main = "src/index.ts"
+compatibility_date = "2024-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Configuration variables (non-sensitive)
+PINECONE_INDEX_NAME = "screener-queries"
+EMBEDDING_MODEL = "text-embedding-3-small"
+LLM_MODEL = "gpt-4o-mini"
+EMBEDDING_DIMENSIONS = "512"
+TOP_K = "5"
+
+# Environment variables for API keys (use wrangler secret put command)
+# OPENAI_API_KEY - set with: wrangler secret put OPENAI_API_KEY
+# PINECONE_API_KEY - set with: wrangler secret put PINECONE_API_KEY  
+# PINECONE_INDEX_HOST - set with: wrangler secret put PINECONE_INDEX_HOST
